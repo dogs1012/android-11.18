@@ -12,7 +12,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class Main3Activity extends AppCompatActivity {    
-int p1, p2, p3, num1,num2,num3;    double hap, dc;    TextView textView;  
+int p1, p2, p3, num1,num2,num3;   
+  double hap1, total;
+TextView textView;  
 EditText editText;    TextView textView2;    EditText editText2;  
 TextView textView3;    EditText editText3;    CheckBox checkBox;    
 RadioGroup RG;    RadioButton radioButton;    RadioButton radioButton2; 
@@ -43,34 +45,17 @@ num3 = Integer.parseInt(editText3.getText().toString());
 hap = p1+p2+p3;     
 p1 =num1 * 16000;       
 p2 =num2 * 11000;      
-p3 = num3 * 4000;       
-dc = hap - (hap / 7);           
-checkBox.setOnCheckedChangeListener        
-(new CompoundButton.OnCheckedChangeListener() {      
-public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {      
-hap = (p1+p2+p3) - dc;                        }                    })   ;     
-RG.setOnCheckedChangeListener               
-(new RadioGroup.OnCheckedChangeListener() {               
-@Override                            
-public void onCheckedChanged(RadioGroup group, int checkedId) {    
-{                              
-if (radioButton.isChecked()) {       
-imageView4.setImageResource(R.drawable.dog);              
-} else if (radioButton2.isChecked()) {            
-imageView4.setImageResource(R.drawable.cat);         
-}                                    }                                }});         
-switch(v.getId()){                   
-case R.id.button3 :            
-break;                     
-}                   
-textView5.setText("주문 개수는 : "+dc+"이고"+"가격은"+hap);       
-}   
-};
-
-
-
-
-
-
-
-
+p3 = num3 * 4000;            
+ int hap1 = Integer.parseInt(num1) + Integer.parseInt(num2) + Integer.parseInt(num3);             
+hap2 = p1+p2+p3;  }
+});
+if (chB1.isChecked()) {  
+  hap2 = (Double) hap2 - ((Double) hap2 * 0.07);
+}
+textView5.setText(" 주문갯수는" +hap1+"이고 가격은"+hap2+"입니다");
+if (radioButton1.isChecked()){
+    Toast.makeText(getApplication(), "피클을 선택하셨습니다",Toast.Lenth_SHORT).show();
+}
+else {
+    Toast.maskeText(getApplication()," 소스를선택하셨습니다",Toast.Lenth_SHORT).show();
+}
